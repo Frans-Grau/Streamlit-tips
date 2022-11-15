@@ -3,20 +3,7 @@ import streamlit as st
 import pandas as pd
 import numpy as np  
 import re
-import seaborn as sns
-import matplotlib.pyplot as plt
-import matplotlib.ticker as mtick
-import re
-import nltk
-import spacy
-from nltk.corpus import stopwords
-from nltk.tokenize import word_tokenize
-from nltk.tokenize import sent_tokenize
-from nltk.stem import SnowballStemmer
 from string import punctuation
-from wordcloud import WordCloud
-import pickle
-from PIL import Image
 import requests
 import streamlit_nested_layout
 
@@ -49,7 +36,7 @@ with outer_cols[0]:
                     st.text(f"Rating: {re['imdbRating']}")
                     st.progress(float(re['imdbRating'])/10)
 
-                        ### Right side of screen    
+                    ### Right side of screen    
                     with outer_cols[0]:
                         st.markdown('')
                         
