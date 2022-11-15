@@ -21,7 +21,7 @@ import requests
 import streamlit_nested_layout
 
 ###Import Data
-reviews_wc = pd.read_pickle("pickles/review_final-wc_p.pkl")
+#reviews_wc = pd.read_pickle("pickles/review_final-wc_p.pkl")
 
 ### Define columns:
 st.set_page_config(page_title=None, page_icon=None, layout="wide", menu_items=None)
@@ -31,7 +31,7 @@ outer_cols = st.columns([2,0.5,2])
 ### Left side of screen
 with outer_cols[0]:
     st.markdown('## Movie')
-    title = st.text_input('Type the title and press Enter')
+    title = st.text_input('Type the title and press Enter (try Carmencita)')
     if title:
             try: 
                 url = f"https://www.omdbapi.com/?t={title}&apikey=38187759"
@@ -55,34 +55,27 @@ with outer_cols[0]:
                         
                     with outer_cols[2]:
                         st.markdown('## Recommendations')
+                        st.text('')
                         inner_cols = st.columns([1,2])
                         
                         with inner_cols[0]:
-                            st.image(re['Poster'], width=125)
+                            st.markdown('Recommendation 1')
                         
                         with inner_cols[1]:
-                            st.subheader(re['Title'])
                             st.write (re['Plot'])
-                            st.text(f"Rating: {re['imdbRating']}")
-                            st.progress(float(re['imdbRating'])/10)
                         
                         inner_cols = st.columns([1,2])
                         with inner_cols[0]:
-                            st.image(re['Poster'], width=125)
+                            st.markdown('Recommendation 2')
                         with inner_cols[1]:
-                            st.subheader(re['Title'])
                             st.write (re['Plot'])
-                            st.text(f"Rating: {re['imdbRating']}")
-                            st.progress(float(re['imdbRating'])/10)
                         
                         inner_cols = st.columns([1,2])
                         with inner_cols[0]:
-                            st.image(re['Poster'], width=125)
+                            st.markdown('Recommendation 3')
                         with inner_cols[1]:
-                            st.subheader(re['Title'])
                             st.write (re['Plot'])
-                            st.text(f"Rating: {re['imdbRating']}")
-                            st.progress(float(re['imdbRating'])/10)
+
 
             except:
                 title = False
@@ -96,3 +89,26 @@ with outer_cols[0]:
                 </form>
                 """
                 st.markdown (contact_form, unsafe_allow_html=True)
+
+# outer_cols = st.columns([1])
+# with outer_cols[1]:
+#     st.markdown('## Recommendations')
+#     inner_cols = st.columns([1,2])
+                        
+#     with inner_cols[0]:
+#         st.markdown('Recommendation 1')
+                        
+#     with inner_cols[1]:
+#          st.write ('hello world')
+                        
+#     inner_cols = st.columns([1,2])
+#     with inner_cols[0]:
+#         st.markdown('Recommendation 2')
+#     with inner_cols[1]:
+#         st.write ('hello world')
+                        
+#     inner_cols = st.columns([1,2])
+#     with inner_cols[0]:
+#         st.markdown('Recommendation 3')
+#     with inner_cols[1]:
+#         st.write ('hello world')
